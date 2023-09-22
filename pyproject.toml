@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "passportdetect"
+version = "0.1.0"
+description = "The passport detection"
+authors = ["Lesnoy Elf"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+scikit-learn = "^1.3.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
