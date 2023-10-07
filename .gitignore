@@ -1,0 +1,6 @@
+catboost_info
+dataset.csv
+predict.csv
+scaler
+model
+.vscode
