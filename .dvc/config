@@ -1,0 +1,5 @@
+[core]
+    remote = boom
+['remote "boom"']
+    url = gdrive://1YdEDUyNmXS9CydKMKDnFllroIiYI5YOp
+    gdrive_use_service_account = true

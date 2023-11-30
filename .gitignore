@@ -1,6 +1,3 @@
-catboost_info
-dataset.csv
-predict.csv
-scaler
-model
 .vscode
+key.json
+__pycache__
