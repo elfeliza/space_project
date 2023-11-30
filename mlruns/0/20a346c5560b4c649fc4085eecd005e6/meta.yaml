@@ -1,8 +1,9 @@
 artifact_uri: mlflow-artifacts:/0/20a346c5560b4c649fc4085eecd005e6/artifacts
+deleted_time: 1701378701411
 end_time: 1701376469288
 entry_point_name: ''
 experiment_id: '0'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 20a346c5560b4c649fc4085eecd005e6
 run_name: clean-boar-780
 run_uuid: 20a346c5560b4c649fc4085eecd005e6

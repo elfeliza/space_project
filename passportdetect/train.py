@@ -57,6 +57,7 @@ def train(cfg: DictConfig):
     valid_f1s = []
 
     best_valid_acc = 0.0
+    best_model = model
 
     f1 = F1Score(task="binary", num_classes=2)
 
@@ -136,16 +137,18 @@ def train(cfg: DictConfig):
             best_valid_acc = valid_acc
             print("Best Valid Acc Improved: %.3f" % best_valid_acc)
             best_model = model
-    best_model.save()
+    # best_model.save()
     print("Finished Training")
 
     with mlflow.start_run():
+        mlflow.set_tracking_uri("http://127.0.0.1:8080")
         mlflow.log_metric("accuracy", valid_acc)
         mlflow.log_metric("f1", valid_f1)
         mlflow.log_metric("loss", valid_loss)
 
         mlflow.set_tag("My models for MLops by Nasa", "boom")
-        signature = infer_signature(X_train, best_model(X_train))
+        preds = best_model(torch.from_numpy(X_train).float().to(device))
+        signature = infer_signature(X_train, preds.detach().numpy())
 
         model_info = mlflow.pytorch.log_model(
             pytorch_model=best_model,

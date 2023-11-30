@@ -2,3 +2,6 @@
 key.json
 __pycache__
 ml.py
+*/__pycache__
+mlartifacts
+mlruns
