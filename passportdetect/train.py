@@ -1,9 +1,11 @@
 import hydra
+import mlflow
 import numpy as np
 import pandas as pd
 import torch
 import torch.optim as optim
 from boom_NN import CustomDataset, my_model
+from mlflow.models import infer_signature
 from omegaconf import DictConfig
 from sklearn.model_selection import train_test_split
 from torch.utils.data import DataLoader
@@ -136,6 +138,23 @@ def train(cfg: DictConfig):
             best_model = model
     best_model.save()
     print("Finished Training")
+
+    with mlflow.start_run():
+        mlflow.log_metric("accuracy", valid_acc)
+        mlflow.log_metric("f1", valid_f1)
+        mlflow.log_metric("loss", valid_loss)
+
+        mlflow.set_tag("My models for MLops by Nasa", "boom")
+        signature = infer_signature(X_train, best_model(X_train))
+
+        model_info = mlflow.pytorch.log_model(
+            pytorch_model=best_model,
+            artifact_path="model_nasa",
+            signature=signature,
+            input_example=X_train,
+            registered_model_name="tracking-quickstart",
+        )
+        print(model_info)
 
 
 if __name__ == "__main__":

@@ -1,0 +1,16 @@
+artifact_uri: mlflow-artifacts:/0/3b99e3b615d246febd52d833030dec57/artifacts
+deleted_time: 1701375687246
+end_time: 1701375622358
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: deleted
+run_id: 3b99e3b615d246febd52d833030dec57
+run_name: monumental-auk-823
+run_uuid: 3b99e3b615d246febd52d833030dec57
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1701375622342
+status: 4
+tags: []
+user_id: eliza

@@ -1,4 +1,4 @@
-import mlflow
+# import mlflow
 from sklearn import datasets
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
@@ -32,42 +32,36 @@ accuracy = accuracy_score(y_test, y_pred)
 
 
 # Set our tracking server uri for logging
-mlflow.set_tracking_uri(uri="http://127.0.0.1:8080")
+# mlflow.set_tracking_uri(uri="http://127.0.0.1:8080")
 
 # Create a new MLflow Experiment
-mlflow.set_experiment("MLflow Quickstart")
+# mlflow.set_experiment("MLflow Quickstart")
 
-print("j")
-with mlflow.start_run():
-    mlflow.onnx.load_model("/home/eliza/passportdetect/logreg_iris.onnx")
-    # Log the hyperparameters
-    # mlflow.log_params(params)
+# print("j")
 
-    # # Log the loss metric
-    # mlflow.log_metric("accuracy", accuracy)
 
-    # # Set a tag that we can use to remind ourselves what this run was for
-    # mlflow.set_tag("Training Info", "Basic LR model for iris data")
+# with mlflow.start_run():
+#     mlflow.onnx.load_model("/home/eliza/passportdetect/models/model.onnx")
+#     mlflow.log_params(params)
+#     mlflow.log_metric("accuracy", accuracy)
+#     mlflow.set_tag("Training Info", "Basic LR model for iris data")
+#     signature = infer_signature(X_train, lr.predict(X_train))
 
-    # # Infer the model signature
-    # signature = infer_signature(X_train, lr.predict(X_train))
-
-    # # Log the model
-    # model_info = mlflow.sklearn.log_model(
-    #     sk_model=lr,
-    #     artifact_path="iris_model",
-    #     signature=signature,
-    #     input_example=X_train,
-    #     registered_model_name="tracking-quickstart",
-    # )
+#     model_info = mlflow.sklearn.log_model(
+#         sk_model=lr,
+#         artifact_path="iris_model",
+#         signature=signature,
+#         input_example=X_train,
+#         registered_model_name="tracking-quickstart",
+#     )
 
 # from skl2onnx import convert_sklearn
 # from skl2onnx.common.data_types import FloatTensorType
 
-# initial_type = [('float_input', FloatTensorType([None, 4]))]
+# initial_type = [("float_input", FloatTensorType([None, 4]))]
 # onx = convert_sklearn(lr, initial_types=initial_type)
 # with open("logreg_iris.onnx", "wb") as f:
-#    f.write(onx.SerializeToString())
+#     f.write(onx.SerializeToString())
 
 
 # class my_model(nn.Module):
