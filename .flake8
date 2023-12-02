@@ -2,3 +2,5 @@
 per-file-ignores =
     # line too long
     passport_detect/train.py: E501,
+    passport_detect/model.py: E501,
+    passport_detect/infer.py: E501

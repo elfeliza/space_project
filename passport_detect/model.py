@@ -39,7 +39,7 @@ class MyModel(pl.LightningModule):
         outputs = self(inputs)
         loss = self.loss_fn(outputs, labels)
         predicted = torch.argmax(outputs, dim=1)
-        train_acc = torch.sum(labels == predicted).item() / len(predicted)
+        train_acc = torch.sum(labels == predicted).item() / (len(predicted) * 1.0)
         self.log_dict(
             {"train_loss": loss, "train_acc": train_acc},
             on_step=False,
@@ -49,12 +49,12 @@ class MyModel(pl.LightningModule):
 
         return loss
 
-    def validation_step(self, batch: Any, batch_idx: int):
+    def validation_step(self, batch: Any, batch_idx: int, dataloader_idx: int = 0):
         inputs, labels = batch
         outputs: torch.Tensor = self(inputs)
         loss = self.loss_fn(outputs, labels)
         predicted = torch.argmax(outputs, dim=1)
-        val_acc = torch.sum(labels == predicted).item() / len(predicted)
+        val_acc = torch.sum(labels == predicted).item() / (len(predicted) * 1.0)
         f1 = self.f1_fn(predicted, labels).item()
         self.log_dict(
             {"val_loss": loss, "val_acc": val_acc, "val_f1": f1},
