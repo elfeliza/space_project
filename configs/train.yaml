@@ -1,0 +1,27 @@
+data:
+  name: data/dataset_nasa.csv
+  target: Hazardous
+  val_size: 0.15
+  seed: 42
+
+model:
+  name: my_model
+  path: models/model.onnx
+  input_dim: 36
+  hidden_dim1: 256
+  output_dim: 2
+  lr: 3e-3
+  f1_task: binary
+
+training:
+  batch_size: 128
+  epochs: 20
+  num_workers: 11
+  precision: 16-mixed
+  accum_grad_batches: 1
+  val_check_interval: 10
+  log_every_n_steps: 10
+
+mlflow:
+  uri: http://localhost:8080/
+  experiment_name: Default

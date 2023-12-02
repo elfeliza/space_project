@@ -1,0 +1,12 @@
+data:
+  name: data/dataset_nasa.csv
+  target: Hazardous
+
+model:
+  name: my_model
+  path: models/model.onnx
+  f1_task: binary
+  output_dim: 2
+
+mlflow:
+  uri: http://localhost:8080/
