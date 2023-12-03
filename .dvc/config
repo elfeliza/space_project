@@ -1,5 +1,5 @@
 [core]
-    remote = boom
-['remote "boom"']
+    remote = myremote
+['remote "myremote"']
     url = gdrive://1YdEDUyNmXS9CydKMKDnFllroIiYI5YOp
-    gdrive_use_service_account = true
+    gdrive_acknowledge_abuse = true
