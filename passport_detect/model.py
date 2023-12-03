@@ -38,15 +38,7 @@ class MyModel(pl.LightningModule):
         inputs, labels = batch
         outputs = self(inputs)
         loss = self.loss_fn(outputs, labels)
-        predicted = torch.argmax(outputs, dim=1)
-        train_acc = torch.sum(labels == predicted).item() / (len(predicted) * 1.0)
-        self.log_dict(
-            {"train_loss": loss, "train_acc": train_acc},
-            on_step=False,
-            on_epoch=True,
-            prog_bar=True,
-        )
-
+        self.log("train_loss", loss, on_step=False, on_epoch=True, prog_bar=True)
         return loss
 
     def validation_step(self, batch: Any, batch_idx: int, dataloader_idx: int = 0):
@@ -62,5 +54,4 @@ class MyModel(pl.LightningModule):
             on_epoch=True,
             prog_bar=True,
         )
-
         return loss

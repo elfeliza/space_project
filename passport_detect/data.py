@@ -52,8 +52,8 @@ class MyDataModule(pl.LightningDataModule):
         train_df, val_df = train_test_split(
             df, test_size=self.val_size, random_state=self.seed
         )
-        self.train_dataset = MyDataset(dataframe=train_df, target=self.target)
-        self.val_dataset = MyDataset(dataframe=val_df, target=self.target)
+        self.train_dataset = MyDataset(df=train_df, target=self.target)
+        self.val_dataset = MyDataset(df=val_df, target=self.target)
 
     def train_dataloader(self) -> DataLoader:
         return DataLoader(

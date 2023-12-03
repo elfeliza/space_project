@@ -19,13 +19,13 @@ poetry run mlflow server --host 127.0.0.1 --port 8080
 ## Обучение
 
 ```shell
-poetry run python3 weather_classifier/train.py
+poetry run python3 passport_detect/train.py
 ```
 
 ## Тестирование
 
 ```shell
-poetry run python3 weather_classifier/infer.py
+poetry run python3 passport_detect/infer.py
 ```
 
 ## Запуск сервера
@@ -33,7 +33,7 @@ poetry run python3 weather_classifier/infer.py
 Сервер запускается по адресу `http://localhost:5000/`.
 
 ```shell
-poetry run python3 weather_classifier/run_server.py
+poetry run python3 passport_detect/run_server.py
 ```
 
 ### Обращение к серверу

@@ -14,13 +14,13 @@ model:
   f1_task: binary
 
 training:
-  batch_size: 128
-  epochs: 20
-  num_workers: 11
-  precision: 16-mixed
+  batch_size: 16
+  epochs: 10
+  num_workers: 2
+  precision: bf16-mixed
   accum_grad_batches: 1
   val_check_interval: 10
-  log_every_n_steps: 10
+  log_every_n_steps: 20
 
 mlflow:
   uri: http://localhost:8080/
