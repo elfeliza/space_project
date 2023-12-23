@@ -59,7 +59,12 @@ def train(cfg: DictConfig):
         )
 
     torch.onnx.export(
-        model=model, args=torch.zeros((1, cfg.model.input_dim)), f=cfg.model.path
+        model=model,
+        args=torch.zeros((1, cfg.model.input_dim)),
+        f=cfg.model.path,
+        input_names=["INPUT"],
+        output_names=["PROBS"],
+        export_params=True,
     )
 
 
